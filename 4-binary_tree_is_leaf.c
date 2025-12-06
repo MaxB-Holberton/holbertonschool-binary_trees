@@ -6,7 +6,7 @@
  * binary_tree_is_leaf - checks if node is a lead
  * @node: node to check
  *
- * 1 on leaf, 0 on non leaf
+ * Return: 1 on leaf, 0 on non leaf
  */
 int binary_tree_is_leaf(const binary_tree_t *node)
 {
