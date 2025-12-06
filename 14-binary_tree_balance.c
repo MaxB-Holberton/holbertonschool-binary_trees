@@ -3,32 +3,30 @@
 #include "binary_trees.h"
 
 /**
- * binary_tree_balance - balance of the tree
+ * binary_tree_balance - balance of the tree (subtrees)
  * @tree: tree to traverse
  *
  * Return: balance of the tree
  */
 int binary_tree_balance(const binary_tree_t *tree)
 {
-	int balance = 0;
-	binary_tree_t *current;
+	int left_i = 0;
+	int right_i = 0;
 
 	if (tree == NULL)
 		return (0);
 
-	current = tree->left;
-	while (current != NULL)
-	{
-		balance++;
-		current = current->left;
-	}
+	if (tree->left != NULL)
+		left_i = binary_tree_balance(tree->left) + 1;
 
-	current = tree->right;
-	while (current != NULL)
-	{
-		balance--;
-		current = current->right;
-	}
+	if (tree->right != NULL)
+		right_i = binary_tree_balance(tree->right) + 1;
 
-	return (balance);
+	if (tree->parent == NULL)
+		return (left_i - right_i);
+
+	if(left_i > right_i)
+		return (left_i);
+
+	return (right_i);
 }
