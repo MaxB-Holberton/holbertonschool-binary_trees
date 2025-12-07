@@ -4,7 +4,7 @@
 
 /**
  * binary_tree_uncle - is the node full
- * @tree: node to check
+ * @node: node to check
  *
  * Return: the uncle or NULL
  */

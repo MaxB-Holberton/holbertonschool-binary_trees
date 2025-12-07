@@ -38,7 +38,8 @@ int check_balance(const binary_tree_t *tree)
  */
 int check_fullness(const binary_tree_t *tree)
 {
-	int i = 0;
+	int left_i = 0;
+	int right_i = 0;
 
 	if (tree == NULL)
 		return (0);
@@ -46,16 +47,11 @@ int check_fullness(const binary_tree_t *tree)
 	if (tree->left == NULL && tree->right == NULL)
 		return (1);
 
-	if (tree->left != NULL && tree->right != NULL)
-	{
-		if (tree->left != NULL)
-			i = check_fullness(tree->left);
+	right_i = binary_tree_is_full(tree->left);
+	left_i = binary_tree_is_full(tree->right);
 
-		if (tree->right != NULL)
-			i = check_fullness(tree->right);
-
-		return (i);
-	}
+	if (left_i == 1 && right_i == 1)
+		return (1);
 
 	return (0);
 }

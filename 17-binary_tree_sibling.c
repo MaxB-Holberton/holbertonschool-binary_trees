@@ -4,7 +4,7 @@
 
 /**
  * binary_tree_sibling - is the node full
- * @tree: node to check
+ * @node: node to check
  *
  * Return: the sibling or NULL
  */
