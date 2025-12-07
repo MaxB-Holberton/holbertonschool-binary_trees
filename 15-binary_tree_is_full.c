@@ -6,29 +6,26 @@
  * binary_tree_is_full - is the node full
  * @tree: node to check
  *
- * Return: 0 if
+ * Return: 0 if not full, 1 if full
  */
 int binary_tree_is_full(const binary_tree_t *tree)
 {
-	int balance = 0;
-	binary_tree_t *current;
+	int i = 0;
 
 	if (tree == NULL)
 		return (0);
 
-	current = tree->left;
-	while (current != NULL)
+	if (tree->left == NULL && tree->right == NULL)
+		return (1);
+
+	if (tree->left != NULL && tree->right != NULL)
 	{
-		balance++;
-		current = current->left;
+		if (tree->left != NULL)
+			i = binary_tree_is_full(tree->left);
+
+		if (tree->right != NULL)
+			i = binary_tree_is_full(tree->right);
 	}
 
-	current = tree->right;
-	while (current != NULL)
-	{
-		balance--;
-		current = current->right;
-	}
-
-	return (balance);
+	return (i);
 }

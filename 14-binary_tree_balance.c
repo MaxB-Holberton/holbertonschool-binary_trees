@@ -25,7 +25,7 @@ int binary_tree_balance(const binary_tree_t *tree)
 	if (tree->parent == NULL)
 		return (left_i - right_i);
 
-	if(left_i > right_i)
+	if (left_i > right_i)
 		return (left_i);
 
 	return (right_i);
