@@ -47,8 +47,8 @@ int check_fullness(const binary_tree_t *tree)
 	if (tree->left == NULL && tree->right == NULL)
 		return (1);
 
-	right_i = binary_tree_is_full(tree->left);
-	left_i = binary_tree_is_full(tree->right);
+	right_i = check_fullness(tree->left);
+	left_i = check_fullness(tree->right);
 
 	if (left_i == 1 && right_i == 1)
 		return (1);
