@@ -53,13 +53,15 @@ int check_fullness(const binary_tree_t *tree)
 
 		if (tree->right != NULL)
 			i = check_fullness(tree->right);
+
+		return (i);
 	}
 
-	return (i);
+	return (0);
 }
 
 /**
- * binary_tree_is_full - is the node full
+ * binary_tree_is_perfect - is the node full
  * @tree: node to check
  *
  * Return: 0 if not full, 1 if full
@@ -74,7 +76,7 @@ int binary_tree_is_perfect(const binary_tree_t *tree)
 	balance = check_balance(tree);
 
 	if (full == 1 && balance == 0)
-		return(1);
+		return (1);
 
 	return (0);
 }
